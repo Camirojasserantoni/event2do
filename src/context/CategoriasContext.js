@@ -23,20 +23,21 @@ class CategoriasProvider extends Component {
 
         let categorias = await axios.get(url);
 
-        console.log(categorias.data.categories);
-
+        this.setState({
+            categorias : categorias.data.categorias
+        })
     }
 
     render() { 
         return ( 
     
-    <CategoriasContext.Provider 
-        value={{
-            categorias : this.state.categorias
-        }}
+        <CategoriasContext.Provider 
+            value={{
+                categorias : this.state.categorias
+            }}
         >
-        {this.props.children}
-    </CategoriasContext.Provider>
+            {this.props.children}
+        </CategoriasContext.Provider>
     );
   }
 }
