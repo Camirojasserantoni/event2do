@@ -14,14 +14,16 @@ class CategoriasProvider extends Component {
 
 
     componentDidMount(){
-        this.obtenerCategorias();
+        this.getCategorias();
     }
 
-    obtenerCategorias = async () => {
+    getCategorias = async () => {
 
         let url = `https://www.eventbriteapi.com/v3/categories/?token=${this.token}&locale=es_ES`;
 
         let categorias = await axios.get(url);
+
+        console.log(categorias.data.categories);
 
         this.setState({
             categorias : categorias.data.categorias
