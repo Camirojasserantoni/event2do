@@ -6,6 +6,19 @@ class Formulario extends Component {
         nombre: '',
         categoria: ''
       }
+
+      //if the user add a event or a categori 
+
+      getDataEvent = e => {
+          this.setState({
+              [e.target.name] : e.target.value
+          })
+      }
+
+
+
+
+
     render() { 
         return ( 
             <form>
@@ -23,6 +36,7 @@ class Formulario extends Component {
                             className="uk-input"
                             type="text"
                             placeholder="Nombre de Evento o ciudad"
+                            onChange={this.getDataEvent}
                         
                          />
                     </div>
@@ -30,7 +44,9 @@ class Formulario extends Component {
                         <select 
                         className="uk-select"
                         name="categoria"
+                        onChange={this.getDataEvent}
                         >
+                            <option value="">--Selecciona una Categoría--</option>
                            <CategoriasConsumer>
 
                                {(value) => {
@@ -38,7 +54,7 @@ class Formulario extends Component {
                                       value.categorias.map(categoria => (
                                           <option 
                                           key={categoria.id} 
-                                          value={categoria.id} classname="data-uk-form-sele">
+                                          value={categoria.id} data-uk-form-select>
                                               {categoria.name_localized}
                                           </option>    
                                       ))
