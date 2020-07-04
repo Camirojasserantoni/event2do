@@ -13,7 +13,7 @@ class CategoriasProvider extends Component {
      }
 
 
-    componentDidMount(){
+    componentDidMount() {
         this.getCategorias();
     }
 
@@ -23,10 +23,8 @@ class CategoriasProvider extends Component {
 
         let categorias = await axios.get(url);
 
-        console.log(categorias.data.categories);
-
         this.setState({
-            categorias : categorias.data.categorias
+            categorias : categorias.data.categories
         })
     }
 
